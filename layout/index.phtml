@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en" lang="en">
+    <head>
+        <title><?= $headTemplate->getTitle(); ?></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="Cooking Paleo - Your Place For Everything Paleo" />
+        <meta name="keywords" content="Cooking Paleo" />
+
+        <link type="text/css" href="css/js/jquery-ui-1.8.16.custom" rel="stylesheet" />
+
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="custom.css" rel="stylesheet">  
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+
+    </head>
+    <body id="page">
+        <nav class="navbar navbar-collapse navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigationbar"> 
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span></button>   	
+                    <a class="navbar-brand" href="index.php?module=blog&page=list">
+
+                </div>
+                <div class="navbar-collapse collapse" id="navigationbar">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <?php if ($_SESSION['email'] == NULL) { ?>
+                                <a href="index.php?module=auth&page=login" class="navbar-link">Login</a>
+                            <?php } else { ?>
+
+                                <a href="index.php?module=auth&page=logout" class="navbar-link">Logout</a>
+
+                            <?php }
+                            ?>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+
+
+
+        <?php if ($flashes): ?>
+            <ul id="flashes">
+                <?php foreach ($flashes as $flash): ?>
+                    <li><?php echo $flash; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+        <?php require $template; ?>
+
+        <!--                    </div>
+                        </div>
+                    </div>
+                </div>-->
+        <!-- footer -->
+        <div id="footer">
+            <div class="indent">
+                <div class="fleft"> 2016 &copy; Copyright H W Design, All rights reserved</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
